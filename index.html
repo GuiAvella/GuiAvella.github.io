@@ -6,9 +6,9 @@
     <title>Guilherme Avella - Portfolio</title>
     <style>
         :root {
-            --bg-color: #0d1117; /* GitHub Dark Dimmed */
+            --bg-color: #0d1117; 
             --text-color: #c9d1d9;
-            --accent-color: #58a6ff; /* Blue for Engineering */
+            --accent-color: #58a6ff; 
             --card-bg: #161b22;
             --border: #30363d;
         }
@@ -23,6 +23,9 @@
             display: flex;
             justify-content: center;
         }
+
+        a { color: var(--accent-color); text-decoration: none; }
+        a:hover { text-decoration: underline; }
 
         .container {
             max-width: 800px;
@@ -40,6 +43,12 @@
 
         .header h1 { margin-bottom: 5px; letter-spacing: -1px; }
         .subtitle { color: var(--accent-color); font-weight: bold; font-size: 1.3rem; }
+        
+        .contact-info {
+            font-size: 0.9rem;
+            margin-top: 10px;
+            color: #8b949e;
+        }
 
         .section { margin-bottom: 40px; }
         
@@ -50,44 +59,53 @@
             margin-top: 15px;
         }
 
-        /* Base Bubble Style */
+        /* Tag/Bubble Styles */
         .tag {
             background-color: rgba(255,255,255,0.05);
             border: 1px solid var(--border);
             padding: 6px 14px;
-            border-radius: 20px; /* Rounded bubbles */
+            border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             transition: transform 0.2s;
         }
-        
         .tag:hover { transform: translateY(-2px); }
 
-        /* Specific Brand Colors */
+        /* Tech Colors */
         .python { color: #3572A5; border-color: #3572A5; }
         .cpp { color: #f34b7d; border-color: #f34b7d; }
         .c { color: #A8B9CC; border-color: #A8B9CC; }
         .rust { color: #DEA584; border-color: #DEA584; }
         .go { color: #00ADD8; border-color: #00ADD8; }
         .react { color: #61DAFB; border-color: #61DAFB; }
+        .js { color: #F7DF1E; border-color: #F7DF1E; }
+        .html { color: #E34F26; border-color: #E34F26; }
+        .arduino { color: #00979D; border-color: #00979D; }
         .sql { color: #336791; border-color: #336791; }
         .mongo { color: #47A248; border-color: #47A248; }
         .docker { color: #2496ED; border-color: #2496ED; }
         .git { color: #F05032; border-color: #F05032; }
 
-        .project-card {
+        .project-card, .job-card {
             background-color: var(--card-bg);
             border: 1px solid var(--border);
             padding: 25px;
             border-radius: 8px;
             margin-bottom: 20px;
-            border-left: 4px solid var(--accent-color);
         }
 
+        .project-card { border-left: 4px solid var(--accent-color); }
+        .job-card { border-left: 4px solid #2ea043; } /* Green for jobs */
+
+        .title-row { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap;}
         .project-title { font-size: 1.2rem; font-weight: bold; color: #fff; margin-bottom: 5px;}
+        .date-range { font-size: 0.85rem; color: #8b949e; font-family: monospace; }
         .tech-stack { font-size: 0.85rem; color: #8b949e; margin-top: 12px; font-family: monospace;}
+        
+        ul { padding-left: 20px; margin-bottom: 0; }
+        li { margin-bottom: 5px; color: var(--text-color); }
 
         .footer {
             margin-top: 60px;
@@ -105,17 +123,22 @@
         <div class="header">
             <h1>Guilherme Avella</h1>
             <div class="subtitle">Electrical Engineer & Software Developer</div>
-            <p style="color: #8b949e; margin-top: 10px;">
-                12 Years of Experience • Power Systems • Embedded Software • High-Performance Computing
-            </p>
+            <div class="contact-info">
+                <a href="mailto:avellaguilherme@gmail.com">avellaguilherme@gmail.com</a> • 
+                <a href="https://www.linkedin.com/in/guilherme-maldonado-pio-avella-a7ab21234/" target="_blank">LinkedIn Profile</a> •
+                Sao Paulo, Brazil
+            </div>
         </div>
 
         <div class="section">
             <h2>About Me</h2>
             <p>
                 I am an Electrical Engineer bridging the gap between hardware and software. 
-                With deep expertise in <strong>power generation, distribution, electric motors, and transformers</strong>, 
-                I use code to optimize and control physical systems.
+                With <strong>12 years of coding experience</strong> and a background in <strong>power generation and distribution</strong>, 
+                I specialize in embedded systems and industrial automation.
+            </p>
+            <p style="margin-top: 10px; font-size: 0.9rem; color: #8b949e;">
+                <strong>Languages:</strong> Portuguese (Native), English (Full Professional)
             </p>
         </div>
 
@@ -124,14 +147,17 @@
             <h3>Languages</h3>
             <div class="grid">
                 <div class="tag python">Python</div>
-                <div class="tag rust">Rust</div>
-                <div class="tag go">Go</div>
                 <div class="tag cpp">C++</div>
                 <div class="tag c">C</div>
+                <div class="tag rust">Rust</div>
+                <div class="tag go">Go</div>
+                <div class="tag js">JavaScript</div>
+                <div class="tag html">HTML</div>
             </div>
 
-            <h3>Tools & Web</h3>
+            <h3>Tools & Platforms</h3>
             <div class="grid">
+                <div class="tag arduino">Arduino</div>
                 <div class="tag react">React</div>
                 <div class="tag sql">PostgreSQL</div>
                 <div class="tag mongo">MongoDB</div>
@@ -141,8 +167,34 @@
         </div>
 
         <div class="section">
-            <h2>Experience</h2>
-            <p style="margin-bottom: 20px;"><em>Most of my work is proprietary/closed-source. Below is a summary of my technical focus.</em></p>
+            <h2>Professional Experience</h2>
+
+            <div class="job-card">
+                <div class="title-row">
+                    <div class="project-title">Quick On Engenharia</div>
+                    <div class="date-range">Apr 2024 - Feb 2025</div>
+                </div>
+                <div style="color: #fff; font-weight: 500; margin-bottom: 10px;">Electrical Engineering Intern</div>
+                <ul>
+                    <li>Applied engineering principles to power distribution and electrical systems.</li>
+                </ul>
+            </div>
+
+            <div class="job-card">
+                <div class="title-row">
+                    <div class="project-title">Solaris</div>
+                    <div class="date-range">Feb 2021 - Nov 2023</div>
+                </div>
+                <div style="color: #fff; font-weight: 500; margin-bottom: 10px;">Internship Trainee</div>
+                <ul>
+                    <li>Gained hands-on experience in engineering operations and project support over a 2+ year tenure.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Selected Technical Projects</h2>
+            <p style="margin-bottom: 20px;"><em>Most of my development work is proprietary. Below is a summary of my technical focus.</em></p>
 
             <div class="project-card">
                 <div class="project-title">Industrial Automation Systems</div>
@@ -155,6 +207,23 @@
                 <p>Engineered resource management algorithms for electrical components to optimize efficiency and reduce thermal stress.</p>
                 <div class="tech-stack">Stack: C++ • C • Rust</div>
             </div>
+        </div>
+
+        <div class="section">
+            <h2>Education & Certifications</h2>
+            
+            <div style="margin-bottom: 20px;">
+                <h3 style="font-size: 1.1rem; margin-bottom: 5px;">Centro Universitário Facens</h3>
+                <div style="color: #8b949e;">Bachelor of Engineering - Electrical and Electronics Engineering</div>
+                <div style="font-size: 0.85rem; color: #58a6ff;">2020 - 2025</div>
+            </div>
+
+            <h3 style="font-size: 1rem; margin-top: 20px; border-bottom: 1px solid #30363d; padding-bottom: 5px; display: inline-block;">Certifications</h3>
+            <ul style="margin-top: 10px;">
+                <li>Desvendando a Indústria 4.0 (Industry 4.0)</li>
+                <li>Desvendando a Blockchain</li>
+                <li>Arduino Specialist</li>
+            </ul>
         </div>
 
         <div class="footer">
